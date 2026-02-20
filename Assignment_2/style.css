@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f9f4;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2e7d32;
+    padding: 10px 30px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   Hero Section (FIXED)
+   ========================= */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") center/cover;
+}
+
+/* Hero text */
+.hero h2 {
+    color: #1b5e20;   /* dark green */
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #2e7d32;
+    font-size: 18px;
+}
+
+/* =========================
+   Crops Section
+   ========================= */
+.crops {
+    padding: 40px;
+    text-align: center;
+}
+
+.crop h2 {
+    color: #1b5e20;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+
+.crop-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.crop-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.crop-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.crop-card h3 {
+    margin-top: 10px;
+    color: #2e7d32;
+}
+
+
+
+/* =========================
+   Fruits Section
+   ========================= */
+.fruits {
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.fruits h2 {
+    color: #1b5e20;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* Fruit cards layout */
+.fruit-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual fruit card */
+.fruit-card {
+    background: #f4f9f4;
+    border-radius: 10px;
+    padding: 15px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Fruit images */
+.fruit-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Fruit name */
+.fruit-card h3 {
+    margin-top: 10px;
+    color: #2e7d32;
+    font-size: 20px;
+}
