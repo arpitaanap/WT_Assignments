@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 3 - Web Technology</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: darkred;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        /* Calculator */
+        #result {
+            width: 90%;
+            height: 40px;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 50px;
+            height: 40px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        /* Form */
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Web Technology Laboratory - Assignment 3</h1>
+
+<div class="container">
+
+    <!-- Calculator -->
+    <div class="box">
+        <h2>Simple Calculator</h2>
+
+        <input type="text" id="result" readonly><br>
+
+        <button onclick="insert('7')">7</button>
+        <button onclick="insert('8')">8</button>
+        <button onclick="insert('9')">9</button>
+        <button onclick="insert('/')">/</button><br>
+
+        <button onclick="insert('4')">4</button>
+        <button onclick="insert('5')">5</button>
+        <button onclick="insert('6')">6</button>
+        <button onclick="insert('*')">*</button><br>
+
+        <button onclick="insert('1')">1</button>
+        <button onclick="insert('2')">2</button>
+        <button onclick="insert('3')">3</button>
+        <button onclick="insert('-')">-</button><br>
+
+        <button onclick="insert('0')">0</button>
+        <button onclick="square()">x²</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="insert('+')">+</button><br>
+
+        <button onclick="clearResult()">C</button>
+    </div>
+
+    <!-- Student Form -->
+    <div class="box">
+        <h2>Student Examination Form</h2>
+
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Enter Name"><br>
+            <input type="email" id="email" placeholder="Enter Email"><br>
+            <input type="number" id="marks" placeholder="Enter Marks"><br>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    // Calculator Functions
+    function insert(value) {
+        document.getElementById("result").value += value;
+    }
+
+    function clearResult() {
+        document.getElementById("result").value = "";
+    }
+
+    function calculate() {
+        let exp = document.getElementById("result").value;
+
+        if (exp === "") {
+            alert("Please enter a value!");
+            return;
+        }
+
+        try {
+            document.getElementById("result").value = eval(exp);
+        } catch {
+            alert("Invalid Expression!");
+        }
+    }
+
+    function square() {
+        let val = document.getElementById("result").value;
+
+        if (val === "" || isNaN(val)) {
+            alert("Enter a valid number!");
+            return;
+        }
+
+        document.getElementById("result").value = val * val;
+    }
+
+    // Form Validation
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let marks = document.getElementById("marks").value;
+
+        if (name === "" || email === "" || marks === "") {
+            alert("All fields are required!");
+            return false;
+        }
+
+        if (marks < 0 || marks > 100) {
+            alert("Marks must be between 0 and 100!");
+            return false;
+        }
+
+        // Prompt usage
+        let confirmSubmit = prompt("Type YES to confirm submission:");
+
+        if (confirmSubmit !== "YES") {
+            alert("Submission Cancelled!");
+            return false;
+        }
+
+        alert("Form Submitted Successfully!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
